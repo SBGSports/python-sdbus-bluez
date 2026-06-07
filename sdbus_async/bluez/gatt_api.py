@@ -28,6 +28,31 @@ from sdbus import (
 )
 
 
+class GattManagerInterfaceAsync(
+    DbusInterfaceCommonAsync,
+    interface_name='org.bluez.GattManager1',
+):
+
+    @dbus_method_async(
+        input_signature='oa{sv}',
+    )
+    async def register_application(
+        self,
+        application: str,
+        options: Dict[str, Tuple[str, Any]],
+    ) -> None:
+        raise NotImplementedError
+
+    @dbus_method_async(
+        input_signature='o',
+    )
+    async def unregister_application(
+        self,
+        application: str,
+    ) -> None:
+        raise NotImplementedError
+
+
 class GattServiceInterfaceAsync(
     DbusInterfaceCommonAsync,
     interface_name='org.bluez.GattService1',

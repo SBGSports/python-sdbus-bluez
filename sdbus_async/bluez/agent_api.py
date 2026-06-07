@@ -61,11 +61,50 @@ class AgentInterfaceAsync(
     interface_name='org.bluez.Agent1',
 ):
     @dbus_method_async()
-    async def cancel(self) -> None:
+    async def release(self) -> None:
         raise NotImplementedError
 
-    @dbus_method_async()
-    async def release(self) -> None:
+    @dbus_method_async(
+        input_signature='o',
+        result_signature='s',
+    )
+    async def request_pin_code(self, device: str) -> str:
+        raise NotImplementedError
+
+    @dbus_method_async(
+        input_signature='os',
+    )
+    async def display_pin_code(self, device: str, pincode: str) -> None:
+        raise NotImplementedError
+
+    @dbus_method_async(
+        input_signature='o',
+        result_signature='u',
+    )
+    async def request_passkey(self, device: str) -> int:
+        raise NotImplementedError
+
+    @dbus_method_async(
+        input_signature='ouq',
+    )
+    async def display_passkey(
+        self,
+        device: str,
+        passkey: int,
+        entered: int,
+    ) -> None:
+        raise NotImplementedError
+
+    @dbus_method_async(
+        input_signature='ou',
+    )
+    async def request_confirmation(self, device: str, passkey: int) -> None:
+        raise NotImplementedError
+
+    @dbus_method_async(
+        input_signature='o',
+    )
+    async def request_authorization(self, device: str) -> None:
         raise NotImplementedError
 
     @dbus_method_async(
@@ -74,8 +113,6 @@ class AgentInterfaceAsync(
     async def authorize_service(self, device: str, uuid: str) -> None:
         raise NotImplementedError
 
-    @dbus_method_async(
-        input_signature='o',
-    )
-    async def request_authorization(self, device: str) -> None:
+    @dbus_method_async()
+    async def cancel(self) -> None:
         raise NotImplementedError
