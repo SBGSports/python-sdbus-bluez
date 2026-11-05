@@ -20,19 +20,11 @@
 from __future__ import annotations
 
 from .adapter_api import AdapterInterfaceAsync
-from .advertising_api import (
-    LEAdvertisementInterfaceAsync,
-    LEAdvertisingManagerInterfaceAsync,
-)
+from .advertising_api import LEAdvertisingManagerInterfaceAsync
 from .agent_api import AgentInterfaceAsync, AgentManagerInterfaceAsync
 from .battery_api import BatteryInterfaceAsync
 from .device_api import DeviceInterfaceAsync
-from .gatt_api import (
-    GattCharacteristicInterfaceAsync,
-    GattDescriptorInterfaceAsync,
-    GattManagerInterfaceAsync,
-    GattServiceInterfaceAsync,
-)
+from .gatt_api import GattManagerInterfaceAsync
 from .media_api import MediaInterfaceAsync
 from .network_api import NetworkServerInterfaceAsync
 from .profile_api import ProfileInterfaceAsync, ProfileManagerInterfaceAsync
@@ -47,12 +39,8 @@ __all__ = (
 
     'DeviceInterfaceAsync',
 
-    'GattServiceInterfaceAsync',
-    'GattCharacteristicInterfaceAsync',
-    'GattDescriptorInterfaceAsync',
     'GattManagerInterfaceAsync',
 
-    'LEAdvertisementInterfaceAsync',
     'LEAdvertisingManagerInterfaceAsync',
 
     'MediaInterfaceAsync',
